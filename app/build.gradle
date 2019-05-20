@@ -6,8 +6,8 @@ android {
         applicationId "com.medisensehealth.fdccontributor"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 16
-        versionName "1.15"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
     }
@@ -63,7 +63,5 @@ dependencies {
     implementation 'com.hbb20:ccp:2.1.2'
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
     // QR CODE SCANNING
-
-    implementation 'com.pixplicity.htmlcompat:library:1.1.1'
 }
 apply plugin: 'com.google.gms.google-services'
