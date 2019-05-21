@@ -136,10 +136,8 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         else
             holder.table_row.setCardBackgroundColor(mContext.getResources().getColor(R.color.white));
 
-
-
-      //  String status[] = {"At reception","Consulted","Cancelled", "Missed"};
-        String status[] = {"At reception","Consulted","Cancelled", "Missed","Pending","Confirmed","Waiting"};
+       // String status[] = {"At reception","Consulted","Cancelled", "Missed","Pending","Confirmed","Waiting"};
+        String status[] = {"At Optometrist","At reception","Cancelled", "Dilation","Quick Followup","Waiting for Doctor","Waiting for Eye test","Waiting for Surgery Consultation","Others","Check Out"};
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(mContext, R.layout.spinner_text, status);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
         holder.spinner.setAdapter(spinnerArrayAdapter);
@@ -401,6 +399,17 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
                                                             jsonArray.getJSONObject(i).getString("patient_mob")));
                                                 }
 
+                                                //Set the values
+                                                Gson gson = new Gson();
+                                                String jsonText = gson.toJson(appointmentArryList);
+                                                if (sharedPreferences != null) {
+                                                    Log.d(Utils.TAG , " clear appoint"+appointmentArryList.size());
+                                                    shareadPreferenceClass.clearAppointmentLists();
+                                                    shareadPreferenceClass.setAppointmentList(jsonText);
+                                                }
+                                            }
+                                            else {
+                                                appointmentArryList = new ArrayList<>();
                                                 //Set the values
                                                 Gson gson = new Gson();
                                                 String jsonText = gson.toJson(appointmentArryList);
